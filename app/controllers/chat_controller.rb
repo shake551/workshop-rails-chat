@@ -1,5 +1,6 @@
 class ChatController < ApplicationController
   def index
+    @messages = Message.all.order(id: :desc)
   end
 
   def create
@@ -10,9 +11,10 @@ class ChatController < ApplicationController
     if m.valid? && m.save
       redirect_to action: :index
       return
-  end
+    end
 
   flash[:errors] = m.errors.full_messages
   render :create, status: :unprocessable_entry
+  end
 end
 
