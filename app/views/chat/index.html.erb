@@ -4,3 +4,19 @@
   <%= form.submit "送信" %>
 <% end %>
 
+<hr>
+<table border="1">
+  <tr>
+    <td>date</td>
+    <td>name</td>
+    <td>message</td>
+  </tr>
+  <% @messages.each do |r| %>
+    <tr>
+      <td><%= r.updated_at %></td>
+      <td><%= r.name %></td>
+      <td><%= r.message %></td>
+    <tr>
+  <% end %>
+</table>
+
